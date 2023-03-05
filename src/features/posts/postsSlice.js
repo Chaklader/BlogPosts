@@ -4,6 +4,7 @@ import {
     createSelector,
     createEntityAdapter
 } from "@reduxjs/toolkit";
+
 import { sub } from 'date-fns';
 import axios from "axios";
 
@@ -63,8 +64,8 @@ const postsSlice = createSlice({
                 existingPost.reactions[reaction]++
             }
         },
-        increaseCount(state, action) {
-            state.count = state.count + 1
+        increaseCount: function (state, action) {
+            state.count += 1;
         }
     },
     extraReducers(builder) {
@@ -88,7 +89,6 @@ const postsSlice = createSlice({
                     return post;
                 });
 
-                // Add any fetched posts to the array
                 postsAdapter.upsertMany(state, loadedPosts)
             })
             .addCase(fetchPosts.rejected, (state, action) => {
@@ -96,13 +96,6 @@ const postsSlice = createSlice({
                 state.error = action.error.message
             })
             .addCase(addNewPost.fulfilled, (state, action) => {
-                // Fix for API post IDs:
-                // Creating sortedPosts & assigning the id
-                // would be not be needed if the fake API
-                // returned accurate new post IDs
-
-                action.payload.id = state.ids[state.ids.length - 1] + 1
-                // End fix for fake API post IDs
 
                 action.payload.userId = Number(action.payload.userId)
                 action.payload.date = new Date().toISOString();
@@ -113,7 +106,6 @@ const postsSlice = createSlice({
                     rocket: 0,
                     coffee: 0
                 }
-                console.log(action.payload)
                 postsAdapter.addOne(state, action.payload)
             })
             .addCase(updatePost.fulfilled, (state, action) => {
