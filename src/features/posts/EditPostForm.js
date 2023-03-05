@@ -1,13 +1,15 @@
-import {useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {selectPostById, updatePost, deletePost} from './postsSlice'
-import {useParams, useNavigate} from 'react-router-dom'
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectPostById, updatePost, deletePost } from './postsSlice'
+import { useParams, useNavigate } from 'react-router-dom'
 
-import {selectAllUsers} from "../users/usersSlice";
+import { selectAllUsers } from "../users/usersSlice";
 
 const EditPostForm = () => {
-    const {postId} = useParams()
+
+    const { postId } = useParams()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const post = useSelector((state) => selectPostById(state, Number(postId)))
     const users = useSelector(selectAllUsers)
@@ -16,8 +18,6 @@ const EditPostForm = () => {
     const [content, setContent] = useState(post?.body)
     const [userId, setUserId] = useState(post?.userId)
     const [requestStatus, setRequestStatus] = useState('idle')
-
-    const dispatch = useDispatch()
 
     if (!post) {
         return (
@@ -37,7 +37,7 @@ const EditPostForm = () => {
         if (canSave) {
             try {
                 setRequestStatus('pending')
-                dispatch(updatePost({id: post.id, title, body: content, userId, reactions: post.reactions})).unwrap()
+                dispatch(updatePost({ id: post.id, title, body: content, userId, reactions: post.reactions })).unwrap()
 
                 setTitle('')
                 setContent('')
@@ -61,7 +61,7 @@ const EditPostForm = () => {
     const onDeletePostClicked = () => {
         try {
             setRequestStatus('pending')
-            dispatch(deletePost({id: post.id})).unwrap()
+            dispatch(deletePost({ id: post.id })).unwrap()
 
             setTitle('')
             setContent('')
