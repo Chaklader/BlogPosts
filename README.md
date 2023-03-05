@@ -1,7 +1,17 @@
 
 
+
+$ npm install json-server -g 
+
+<br>
+
 $ json-server --watch data/db.json --port 3500
+
+<br>
+
 $ json-server --watch data/db.json --port 3500
+
+
 
 # Getting Started with Create React App
 
