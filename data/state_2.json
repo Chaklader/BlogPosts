@@ -1,0 +1,157 @@
+{
+  api: {
+    queries: {
+      'getUsers("getUsers")': {
+        status: 'fulfilled',
+        endpointName: 'getUsers',
+        requestId: 'wcHkpIsivOA-Evxdn1l16',
+        originalArgs: 'getUsers',
+        startedTimeStamp: 1678083235680,
+        data: {
+          ids: [
+            1,
+            2
+          ],
+          entities: {
+            '1': {
+              id: 1,
+              name: 'Leanne Graham',
+              username: 'Bret',
+              email: 'Sincere@april.biz',
+              address: {
+                street: 'Kulas Light',
+                suite: 'Apt. 556',
+                city: 'Gwenborough',
+                zipcode: '92998-3874',
+                geo: {
+                  lat: '-37.3159',
+                  lng: '81.1496'
+                }
+              },
+              phone: '1-770-736-8031 x56442',
+              website: 'hildegard.org',
+              company: {
+                name: 'Romaguera-Crona',
+                catchPhrase: 'Multi-layered client-server neural-net',
+                bs: 'harness real-time e-markets'
+              }
+            },
+            '2': {
+              id: 2,
+              name: 'Ervin Howell',
+              username: 'Antonette',
+              email: 'Shanna@melissa.tv',
+              address: {
+                street: 'Victor Plains',
+                suite: 'Suite 879',
+                city: 'Wisokyburgh',
+                zipcode: '90566-7771',
+                geo: {
+                  lat: '-43.9509',
+                  lng: '-34.4618'
+                }
+              },
+              phone: '010-692-6593 x09125',
+              website: 'anastasia.net',
+              company: {
+                name: 'Deckow-Crist',
+                catchPhrase: 'Proactive didactic contingency',
+                bs: 'synergize scalable supply-chains'
+              }
+            }
+          }
+        },
+        fulfilledTimeStamp: 1678083235786
+      },
+      'getPosts("getPosts")': {
+        status: 'fulfilled',
+        endpointName: 'getPosts',
+        requestId: 'zbDCJrH-ZPUyzfvGL5Pc7',
+        originalArgs: 'getPosts',
+        startedTimeStamp: 1678083266536,
+        data: {
+          ids: [
+            2,
+            3
+          ],
+          entities: {
+            '2': {
+              id: 2,
+              title: 'qui est esse',
+              body: 'hey there',
+              userId: 1,
+              date: '2022-04-13T23:02:19.248Z',
+              reactions: {
+                thumbsUp: 0,
+                wow: 0,
+                heart: 0,
+                rocket: 0,
+                coffee: 0
+              }
+            },
+            '3': {
+              id: 3,
+              title: 'ea molestias quasi exercitationem repellat qui ipsa sit aut',
+              body: 'hey there!',
+              userId: 1,
+              date: '2022-05-02T20:41:05.437Z',
+              reactions: {
+                thumbsUp: 0,
+                wow: 0,
+                heart: 0,
+                rocket: 0,
+                coffee: 0
+              }
+            }
+          }
+        },
+        fulfilledTimeStamp: 1678083266611
+      }
+    },
+    mutations: {},
+    provided: {
+      Post: {
+        '2': [
+          'getPosts("getPosts")'
+        ],
+        '3': [
+          'getPosts("getPosts")'
+        ],
+        LIST: [
+          'getPosts("getPosts")'
+        ]
+      },
+      User: {
+        '1': [
+          'getUsers("getUsers")'
+        ],
+        '2': [
+          'getUsers("getUsers")'
+        ],
+        LIST: [
+          'getUsers("getUsers")'
+        ]
+      }
+    },
+    subscriptions: {
+      'getUsers("getUsers")': {
+        'C6tXihesVG9p-wUOl53mz': {
+          pollingInterval: 0
+        },
+        '6fDJf1vGl3uPyGSLm7_aD': {
+          pollingInterval: 0
+        }
+      }
+    },
+    config: {
+      online: true,
+      focused: true,
+      middlewareRegistered: true,
+      refetchOnFocus: false,
+      refetchOnReconnect: false,
+      refetchOnMountOrArgChange: false,
+      keepUnusedDataFor: 60,
+      reducerPath: 'api'
+    }
+  }
+}
